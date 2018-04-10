@@ -12,6 +12,9 @@ mongoose.Promise = Promise;
 
 const app = express(); // Self instantiating constructor
 
+// Allow the front end/client side to access the files inside of ./client/build
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
